@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Safety &amp; Privacy — Gist</title>
+  <link rel="stylesheet" href="global.css"/>
+  <link rel="stylesheet" href="pages.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">gist<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="safety.html">Safety</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#" class="btn-ghost">Log in</a>
+      <a href="#" class="btn-primary">Download</a>
+    </div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <section class="page-hero">
+    <span class="hero-badge">🔒 Your trust, our responsibility</span>
+    <h1>Your safety.<br/><em>No fine print.</em></h1>
+    <p>We built Gist on a simple idea: you should always know what we collect, why we collect it, and how to leave if you want to.</p>
+  </section>
+
+  <section class="safety-content">
+
+    <!-- ACCOUNT DELETION -->
+    <div class="safety-block" id="delete-account">
+      <div class="safety-block-icon">🗑</div>
+      <div class="safety-block-body">
+        <h2>How to Delete Your Account</h2>
+        <p>Deleting your account is permanent and immediate. Here's exactly how:</p>
+        <ol class="safety-steps">
+          <li>Open the Gist app and go to your <strong>Profile</strong></li>
+          <li>Tap <strong>Settings</strong> (top right)</li>
+          <li>Scroll to <strong>Account</strong> and tap <strong>Delete Account</strong></li>
+          <li>Confirm your decision — we'll permanently remove your account and all associated data within <strong>30 days</strong></li>
+        </ol>
+        <div class="safety-note">
+          <strong>What gets deleted:</strong> Your profile, posts, comments, reactions, voice stances, and all activity history. Once deleted, this cannot be undone.
+        </div>
+        <p style="margin-top:1rem;">Can't access the app? Email us at <a href="mailto:support@gist.app" class="safety-link">support@gist.app</a> and we'll handle it manually within 7 business days.</p>
+      </div>
+    </div>
+
+    <!-- DATA WE COLLECT -->
+    <div class="safety-block" id="data-collected">
+      <div class="safety-block-icon">📋</div>
+      <div class="safety-block-body">
+        <h2>What Data We Collect</h2>
+        <p>We collect only what's necessary to make Gist work well for you.</p>
+
+        <div class="data-table">
+          <div class="data-row data-row--header">
+            <span>Data</span>
+            <span>Why</span>
+            <span>Stored?</span>
+          </div>
+          <div class="data-row">
+            <span>Name &amp; email</span>
+            <span>Account creation &amp; login</span>
+            <span>Yes, encrypted</span>
+          </div>
+          <div class="data-row">
+            <span>Profile photo</span>
+            <span>Your public profile</span>
+            <span>Yes, on secure cloud storage</span>
+          </div>
+          <div class="data-row">
+            <span>Posts, comments, reactions</span>
+            <span>App functionality</span>
+            <span>Yes, deleted when you delete account</span>
+          </div>
+          <div class="data-row">
+            <span>Voice stances &amp; poll votes</span>
+            <span>Aggregate opinion data</span>
+            <span>Anonymised after account deletion</span>
+          </div>
+          <div class="data-row">
+            <span>Device &amp; OS info</span>
+            <span>Crash reports &amp; bug fixes</span>
+            <span>Yes, anonymised</span>
+          </div>
+          <div class="data-row">
+            <span>In-app activity (taps, reads)</span>
+            <span>Personalise your feed</span>
+            <span>Yes, never sold</span>
+          </div>
+          <div class="data-row">
+            <span>Location (if granted)</span>
+            <span>Local story filtering</span>
+            <span>City-level only, not precise</span>
+          </div>
+          <div class="data-row data-row--never">
+            <span>Contacts, SMS, camera roll</span>
+            <span>—</span>
+            <span>❌ We never access these</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT WE DON'T DO -->
+    <div class="safety-block" id="what-we-dont-do">
+      <div class="safety-block-icon">🚫</div>
+      <div class="safety-block-body">
+        <h2>What We Will Never Do</h2>
+        <div class="values-row">
+          <div class="value-item">
+            <h5>❌ Sell your data</h5>
+            <p>Your personal information is never sold to advertisers, data brokers, or third parties — ever.</p>
+          </div>
+          <div class="value-item">
+            <h5>❌ Share without consent</h5>
+            <p>We don't share your personally identifiable information with any third party without your explicit consent.</p>
+          </div>
+          <div class="value-item">
+            <h5>❌ Track you off-app</h5>
+            <p>We don't track your behaviour outside the Gist app. No cross-site tracking, no device fingerprinting.</p>
+          </div>
+          <div class="value-item">
+            <h5>❌ Spam you</h5>
+            <p>We send only what you ask for — notifications can be fully customised or turned off entirely in Settings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW WE PROTECT DATA -->
+    <div class="safety-block" id="data-security">
+      <div class="safety-block-icon">🛡</div>
+      <div class="safety-block-body">
+        <h2>How We Protect Your Data</h2>
+        <div class="values-row">
+          <div class="value-item">
+            <h5>🔐 Encryption in transit &amp; at rest</h5>
+            <p>All communication between the app and our servers uses TLS. Data stored in our database is encrypted at rest.</p>
+          </div>
+          <div class="value-item">
+            <h5>🔑 Secure authentication</h5>
+            <p>Passwords are hashed using industry-standard algorithms. We support secure token-based sessions with automatic expiry.</p>
+          </div>
+          <div class="value-item">
+            <h5>🔒 Minimal access principle</h5>
+            <p>Only engineers who absolutely need it have access to production data. Access is logged and audited.</p>
+          </div>
+          <div class="value-item">
+            <h5>☁ Trusted infrastructure</h5>
+            <p>We run on AWS infrastructure with regular security audits, backups, and disaster recovery processes in place.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT SAFETY -->
+    <div class="safety-block" id="content-safety">
+      <div class="safety-block-icon">🧭</div>
+      <div class="safety-block-body">
+        <h2>Content Safety</h2>
+        <p>Gist is a place for open debate, not hate. Here's how we keep it that way:</p>
+        <div class="values-row">
+          <div class="value-item">
+            <h5>🤖 AI moderation</h5>
+            <p>Comments and posts are screened automatically for hate speech, violence, and harassment before they go live.</p>
+          </div>
+          <div class="value-item">
+            <h5>🚩 User reporting</h5>
+            <p>Every post and comment has a Report button. Reported content is reviewed within 24 hours by our moderation team.</p>
+          </div>
+          <div class="value-item">
+            <h5>🚫 Block &amp; mute</h5>
+            <p>You can block or mute any user at any time from their profile. Blocked users cannot see or interact with you.</p>
+          </div>
+          <div class="value-item">
+            <h5>📜 Community Guidelines</h5>
+            <p>Accounts that repeatedly violate our guidelines are suspended. Serious violations are permanently banned immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YOUR RIGHTS -->
+    <div class="safety-block" id="your-rights">
+      <div class="safety-block-icon">⚖</div>
+      <div class="safety-block-body">
+        <h2>Your Rights</h2>
+        <p>You are always in control of your data. You have the right to:</p>
+        <ul class="safety-steps">
+          <li><strong>Access</strong> — Request a copy of all data we hold on you</li>
+          <li><strong>Correct</strong> — Update or fix any inaccurate information in your profile</li>
+          <li><strong>Delete</strong> — Remove your account and data at any time, no questions asked</li>
+          <li><strong>Opt out</strong> — Turn off personalised content, notifications, and optional data collection in Settings</li>
+          <li><strong>Port</strong> — Request an export of your data in a machine-readable format</li>
+        </ul>
+        <p style="margin-top:1rem;">To exercise any of these rights, email <a href="mailto:privacy@gist.app" class="safety-link">privacy@gist.app</a>. We respond within 7 business days.</p>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="safety-cta">
+      <h2>Still have questions?</h2>
+      <p>Our safety and privacy team is real people — not a bot. We'll get back to you within 2 business days.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;">
+        <a href="mailto:support@gist.app" class="btn-primary">Email Support</a>
+        <a href="mailto:privacy@gist.app" class="btn-ghost">Privacy Queries</a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">gist<span class="dot">.</span></a>
+        <p>News that thinks. Voices that count.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <a href="features.html">Features</a>
+          <a href="#">Changelog</a>
+        </div>
+        <div class="footer-col">
+          <h5>Discover</h5>
+          <a href="#">Pulse</a>
+          <a href="#">Series</a>
+          <a href="#">Voice</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="about.html">About</a>
+          <a href="blog.html">Blog</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="safety.html">Safety &amp; Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Delete Account</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Gist Inc. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#">Twitter</a><a href="#">Instagram</a><a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
