@@ -5,7 +5,7 @@
       "namespace": "android_app",
       "package_name": "com.gist.app",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_PLAY_APP_SIGNING_SHA256_FINGERPRINT"
+        "DB:9D:F7:EF:A3:55:C4:B8:95:03:6C:F3:0A:60:13:8E:3F:2E:3E:12:CE:27:4B:E9:D2:EC:CD:D4:6F:51:A1:93"
       ]
     }
   }
