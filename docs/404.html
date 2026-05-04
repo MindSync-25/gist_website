@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gist – Check out this post</title>
+  <meta name="description" content="Gist is the social platform where you post your takes, debate anything, follow real people, and discover what's happening in your world."/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Gist"/>
+  <meta property="og:title" content="Gist – The Social App Where Real Conversations Happen"/>
+  <meta property="og:description" content="Post your takes. Join live debates. Discover your city. Gist is the social platform where real conversations happen."/>
+  <meta property="og:image" content="https://gistverse.com/social-preview.png"/>
+  <meta property="og:url" content="https://gistverse.com"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Gist – The Social App Where Real Conversations Happen"/>
+  <meta name="twitter:description" content="See what everyone's talking about. Download Gist today."/>
+  <meta name="twitter:image" content="https://gistverse.com/social-preview.png"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0F172A;
+      color: #F8FAFC;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .logo { font-size: 28px; font-weight: 800; margin-bottom: 20px; letter-spacing: -.5px; }
+    .logo span { color: rgb(31,198,188); }
+    .card {
+      background: #1E293B;
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .spinner {
+      width: 42px; height: 42px;
+      border: 3px solid rgba(31,198,188,.2);
+      border-top-color: rgb(31,198,188);
+      border-radius: 50%;
+      animation: spin .9s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h1 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .sub { font-size: 14px; color: #94A3B8; margin-bottom: 22px; line-height: 1.6; }
+    #status { font-size: 13px; color: rgb(31,198,188); margin-bottom: 14px; min-height: 18px; }
+    .btn {
+      display: block; padding: 14px 18px; border-radius: 12px;
+      font-size: 15px; font-weight: 600; text-decoration: none;
+      margin-bottom: 10px; transition: opacity .2s;
+    }
+    .btn:hover { opacity: .85; }
+    .primary { background: linear-gradient(135deg, rgb(31,198,188), rgb(45,123,248)); color: #fff; }
+    .secondary {
+      background: rgba(255,255,255,.07);
+      color: #F8FAFC;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    hr { border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 14px 0; }
+  </style>
+</head>
+<body>
+  <div class="logo">gist<span>.</span></div>
+  <div class="card">
+    <div class="spinner" id="sp"></div>
+    <h1>Opening Gist&hellip;</h1>
+    <p id="status">Launching the app</p>
+    <p class="sub">If the app is installed it will open automatically.</p>
+    <a href="#" class="btn primary" id="storeBtn" style="display:none">Download Gist</a>
+    <hr/>
+    <a href="https://gistverse.com" class="btn secondary">Visit Gistverse.com</a>
+  </div>
+
+  <script>
+  (function () {
+    var ANDROID_PKG = 'com.gist.app';
+    var PLAY_STORE  = 'https://play.google.com/store/apps/details?id=' + ANDROID_PKG;
+    var APP_STORE   = 'https://apps.apple.com/app/gist/id6738665797';
+
+    var btn    = document.getElementById('storeBtn');
+    var status = document.getElementById('status');
+    var sp     = document.getElementById('sp');
+
+    // Extract post ID from paths like /post/post-26 or /post/26
+    function getPostId() {
+      var m = window.location.pathname.match(/\/post\/([^/?#]+)/);
+      return m ? m[1] : null;
+    }
+
+    function showFallback(msg, href, label) {
+      sp.style.display = 'none';
+      status.textContent = msg;
+      if (href) { btn.href = href; btn.textContent = label; btn.style.display = 'block'; }
+    }
+
+    var rawId = getPostId();
+    if (!rawId) {
+      // Not a /post/ path – go to home
+      window.location.replace('https://gistverse.com');
+      return;
+    }
+
+    // Build the numeric ID so we can use the backend share page (with real OG)
+    var numMatch = rawId.match(/^(?:post-)?(\d+)$/);
+    var numericId = numMatch ? numMatch[1] : null;
+
+    var ua        = navigator.userAgent || '';
+    var isAndroid = /android/i.test(ua);
+    var isIOS     = /iphone|ipad|ipod/i.test(ua);
+
+    if (isAndroid) {
+      btn.href = PLAY_STORE;
+      btn.textContent = 'Get Gist on Google Play';
+
+      if (numericId) {
+        // Redirect to richer backend share page which has the real post image
+        window.location.replace(
+          'https://gist-backend.fly.dev/share/post/' + numericId
+        );
+      } else {
+        var intentUrl =
+          'intent://post/' + rawId +
+          '#Intent;scheme=gist;package=' + ANDROID_PKG +
+          ';S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE) + ';end';
+        window.location.href = intentUrl;
+        setTimeout(function () {
+          showFallback('App not found. Download Gist to view this post.', PLAY_STORE, 'Get Gist on Google Play');
+        }, 2200);
+      }
+    } else if (isIOS) {
+      btn.href = APP_STORE;
+      btn.textContent = 'Get Gist on the App Store';
+      btn.style.display = 'block';
+
+      if (numericId) {
+        window.location.replace(
+          'https://gist-backend.fly.dev/share/post/' + numericId
+        );
+      } else {
+        window.location.href = 'gist://post/' + rawId;
+        setTimeout(function () {
+          showFallback('App not found. Download Gist to view this post.', APP_STORE, 'Get Gist on the App Store');
+        }, 2200);
+      }
+    } else {
+      // Desktop
+      showFallback('Open this link on your phone to view the post in Gist.', null, '');
+    }
+  })();
+  </script>
+</body>
+</html>
